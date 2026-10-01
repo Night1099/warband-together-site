@@ -4,3 +4,6 @@ dist/
 .vercel/
 .astro/
 docs/
+
+.vercel
+.env*
