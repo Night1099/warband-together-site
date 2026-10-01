@@ -1,0 +1,24 @@
+---
+import type { Lane } from '../lib/roadmap';
+import Block from './Block.astro';
+import DetailCard from './DetailCard.astro';
+
+interface Props {
+  lane: Lane;
+}
+
+const { lane } = Astro.props;
+---
+<section class="lane" id={lane.id}>
+  <h2>{lane.name} <span class="count">{lane.done} / {lane.total} done</span></h2>
+  <p class="summary-line">{lane.summary}</p>
+  <div class="clusters">
+    {lane.groups.map((group) => (
+      <div class="cluster">
+        <h3>{group.name}</h3>
+        {group.features.map((feature) => <Block feature={feature} />)}
+      </div>
+    ))}
+  </div>
+  <DetailCard />
+</section>

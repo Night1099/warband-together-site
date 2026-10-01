@@ -1,0 +1,93 @@
+:root {
+  --paper: #efe4c8;
+  --ink: #3b2a17;
+  --muted: #7a6245;
+  --rule: #7a1f1f;
+  --block-border: #5c4526;
+  --block-size: 15px;
+
+  --status-works: #5a7d2a;
+  --status-in-testing: #3f7f7a;
+  --status-partly-works: #c08a2d;
+  --status-known-issue: #9b2d20;
+  --status-planned: #a89a7c;
+  --status-not-yet-assessed: #d9ccae;
+  --status-not-in-coop: #6b5a43;
+}
+
+@media (max-width: 640px) {
+  :root { --block-size: 22px; }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.5;
+}
+
+a { color: var(--rule); }
+
+.page { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+
+.site-header h1 { font-variant: small-caps; font-size: 2.2rem; margin: 0; }
+.site-header .tagline { margin: 4px 0 8px; color: var(--muted); }
+.site-header .version {
+  display: inline-block; border: 1px solid var(--block-border); padding: 0 6px;
+  font-size: 0.85rem; margin-right: 12px;
+}
+.site-header nav a { margin-right: 12px; }
+
+.summary { margin: 24px 0; }
+.summary .headline { font-size: 1.3rem; margin: 0; }
+.muted { color: var(--muted); font-size: 0.9rem; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; list-style: none; padding: 0; margin: 8px 0 0; font-size: 0.85rem; }
+.legend li { display: flex; align-items: center; gap: 6px; }
+
+.swatch, .block {
+  display: inline-block;
+  width: var(--block-size);
+  height: var(--block-size);
+  border: 1px solid var(--block-border);
+  border-radius: 1px;
+}
+
+.block { margin: 1px; padding: 0; cursor: pointer; vertical-align: top; }
+.block:focus-visible { outline: 2px solid var(--rule); outline-offset: 1px; }
+.block[aria-expanded='true'] { outline: 2px solid var(--ink); outline-offset: 1px; }
+
+.status-works { background: var(--status-works); }
+.status-in-testing { background: var(--status-in-testing); }
+.status-partly-works { background: var(--status-partly-works); }
+.status-known-issue { background: var(--status-known-issue); }
+.status-planned { background: var(--status-planned); }
+.status-not-yet-assessed { background: var(--status-not-yet-assessed); }
+.status-not-in-coop { background: var(--status-not-in-coop); }
+
+.lane { margin: 28px 0; }
+.lane h2 {
+  font-variant: small-caps; font-size: 1.4rem; margin: 0 0 4px;
+  border-bottom: 2px solid var(--rule); padding-bottom: 4px;
+}
+.lane h2 .count { font-size: 0.8em; color: var(--muted); font-variant: normal; margin-left: 8px; }
+.lane .summary-line { color: var(--muted); font-size: 0.9rem; margin: 0 0 10px; }
+
+.clusters { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.cluster h3 {
+  font-size: 0.7rem; font-variant: small-caps; letter-spacing: 0.05em;
+  color: var(--muted); margin: 0 0 2px; font-weight: normal;
+}
+
+.detail-card {
+  margin-top: 12px; padding: 10px 14px; border: 1px solid var(--block-border);
+  background: #f6eedb; max-width: 560px;
+}
+.detail-card h3 { margin: 0; font-variant: small-caps; }
+.detail-card .card-meta { color: var(--muted); font-size: 0.85rem; }
+.detail-card p { margin: 6px 0 0; }
+
+.site-footer { margin-top: 40px; color: var(--muted); font-size: 0.85rem; }

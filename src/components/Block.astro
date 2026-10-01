@@ -1,0 +1,20 @@
+---
+import { statusSlug, type Feature } from '../lib/roadmap';
+
+interface Props {
+  feature: Feature;
+}
+
+const { feature } = Astro.props;
+---
+<button
+  type="button"
+  class={`block status-${statusSlug(feature.status)}`}
+  title={feature.name}
+  aria-label={`${feature.name}: ${feature.status}`}
+  aria-expanded="false"
+  data-name={feature.name}
+  data-status={feature.status}
+  data-group={feature.group}
+  data-note={feature.note}
+></button>

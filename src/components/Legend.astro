@@ -1,0 +1,8 @@
+---
+import { STATUSES, statusSlug } from '../lib/roadmap';
+---
+<ul class="legend">
+  {STATUSES.map((status) => (
+    <li><span class={`swatch status-${statusSlug(status)}`} aria-hidden="true"></span>{status}</li>
+  ))}
+</ul>
