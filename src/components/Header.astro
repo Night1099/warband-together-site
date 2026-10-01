@@ -1,0 +1,18 @@
+---
+import { LATEST_RELEASE_URL, REPO_URL } from '../lib/links';
+
+interface Props {
+  version: string;
+}
+
+const { version } = Astro.props;
+---
+<header class="site-header">
+  <h1>Warband Together</h1>
+  <p class="tagline">Co-op campaign for Mount &amp; Blade: Warband. Early alpha.</p>
+  <span class="version">{version}</span>
+  <nav>
+    <a href={LATEST_RELEASE_URL}>Download latest release</a>
+    <a href={REPO_URL}>GitHub</a>
+  </nav>
+</header>

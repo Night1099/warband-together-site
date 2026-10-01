@@ -1,0 +1,39 @@
+---
+import Header from '../components/Header.astro';
+import Legend from '../components/Legend.astro';
+import MilestoneLane from '../components/MilestoneLane.astro';
+import { ROADMAP_MD_URL } from '../lib/links';
+import { loadRoadmap } from '../lib/roadmap';
+import '../styles/theme.css';
+
+const roadmap = await loadRoadmap();
+const builtOn = roadmap.builtAt.toISOString().slice(0, 10);
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Warband Together roadmap</title>
+    <meta name="description" content="How much of the Mount & Blade: Warband campaign works in Warband Together co-op." />
+  </head>
+  <body>
+    <div class="page">
+      <Header version={roadmap.version} />
+      <main>
+        <section class="summary">
+          <p class="headline">{roadmap.done} of {roadmap.total} features done</p>
+          <p class="muted">Done means it works in coop, or it was deliberately left out of coop.</p>
+          <Legend />
+        </section>
+        {roadmap.lanes.map((lane) => <MilestoneLane lane={lane} />)}
+      </main>
+      <footer class="site-footer">
+        Built from roadmap.json on {builtOn}. <a href={ROADMAP_MD_URL}>Full roadmap</a>
+      </footer>
+    </div>
+    <script>
+      import { initDetailCards } from '../scripts/detail-card';
+      initDetailCards();
+    </script>
+  </body>
+</html>
