@@ -4,7 +4,7 @@ Static Astro site that renders the Warband Together co-op roadmap as
 milestone lanes of status blocks. Data comes from `roadmap.json` in
 https://github.com/Night1099/WarbandTogether, fetched at build time.
 
-Live: https://warband-together-site.vercel.app (Vercel, team Skymerx; pushes
+Live: https://warbandtogether.dev (Vercel, team Skymerx; www redirects; pushes
 to `main` deploy). The deploy hook URL is kept out of git in `.env.deploy-hook`.
 
 - `npm test`: unit and component tests (offline, fixture-based)
