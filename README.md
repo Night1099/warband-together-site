@@ -7,6 +7,7 @@ https://github.com/Night1099/WarbandTogether, fetched at build time.
 Live: https://warbandtogether.dev (Vercel, team Skymerx; www redirects; pushes
 to `main` deploy). The deploy hook URL is kept out of git in `.env.deploy-hook`.
 
+- `/progress.svg`: the same data as one image card (a status bar per milestone), embedded at the top of the public README
 - `npm test`: unit and component tests (offline, fixture-based)
 - `npm run build`: fetches live data; fails if the data is missing or invalid
 - Refresh after a public sync: wait about 5 minutes (raw.githubusercontent.com caches files for 300 s), then trigger the Vercel deploy hook
